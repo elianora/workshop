@@ -1,2 +1,3 @@
-# workshop
-Magic: the Gathering Deck Builder
+# Workshop
+
+A Magic: the Gathering deck building tool

@@ -23,17 +23,23 @@ describe('ScryfallService', () => {
         httpTestingController = TestBed.inject(HttpTestingController);
     });
 
-    it('should be created', () => {
-        expect(service).toBeTruthy();
-    });
-
-    it('should make a GET request when autocompleting', () => {
+    it('should make a GET request when autocompleting with non-empty input', () => {
         service.autocomplete('thal').pipe(take(1)).subscribe();
         const req = httpTestingController.expectOne(
             `${service.endpoints.autocomplete}?q=thal`
         );
         expect(req.request.method).toEqual('GET');
         req.flush({ uri: '', total_values: 0, data: [] });
+    });
+
+    it('should not make any calls to the API when empty string or null is provided', () => {
+        service.autocomplete('').pipe(take(1)).subscribe({
+            next: (result) => expect(result).toEqual([])
+        });
+
+        service.autocomplete(null).pipe(take(1)).subscribe({
+            next: (result) => expect(result).toEqual([])
+        });
     });
 
     afterEach(() => {

@@ -11,6 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 import { CardAutocompleterComponent } from './components/card-autocompleter/card-autocompleter.component';
+import { CardImagePreviewerComponent } from './components/card-image-previewer/card-image-previewer.component';
 
 /**
  * The shared module defines common components that can be re-used across any feature of the application.
@@ -18,7 +19,7 @@ import { CardAutocompleterComponent } from './components/card-autocompleter/card
  * This module should be imported into each feature module in order to provide common functionality and components.
  */
 @NgModule({
-    declarations: [CardAutocompleterComponent],
+    declarations: [CardAutocompleterComponent, CardImagePreviewerComponent],
     imports: [
         CommonModule,
         FontAwesomeModule,
@@ -30,6 +31,7 @@ import { CardAutocompleterComponent } from './components/card-autocompleter/card
     ],
     exports: [
         CardAutocompleterComponent,
+        CardImagePreviewerComponent,
         FontAwesomeModule,
         MatAutocompleteModule,
         MatFormFieldModule,

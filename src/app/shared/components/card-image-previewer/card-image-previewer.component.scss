@@ -1,0 +1,16 @@
+:host {
+    display: inline-block;
+    position: relative;
+
+    .previewer-container {
+        display: none;
+        position: absolute;
+        top: 1.25em;
+        left: 0.25em;
+        z-index: 99999;
+    }
+
+    &:hover .previewer-container {
+        display: block;
+    }
+}

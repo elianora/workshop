@@ -11,6 +11,7 @@ export class ScryfallService {
     baseUrl = 'https://api.scryfall.com';
     endpoints = {
         autocomplete: `${this.baseUrl}/cards/autocomplete`,
+        cardByName: `${this.baseUrl}/cards/named`
     };
 
     constructor(private http: HttpClient) {}
@@ -29,5 +30,13 @@ export class ScryfallService {
                 params: { q: cardName },
             })
             .pipe(map((result) => result.data));
+    }
+
+    getCard(cardName: string) {
+        return this.http.get<any>(this.endpoints.cardByName, {
+            params: {
+                exact: cardName
+            }
+        });
     }
 }

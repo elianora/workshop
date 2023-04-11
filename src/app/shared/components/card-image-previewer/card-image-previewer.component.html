@@ -1,4 +1,4 @@
 {{ cardName }}
 <div class="previewer-container">
-    <img [src]="imageUrl$ | async">
+    <img *ngIf="imageUrl$ | async" [src]="imageUrl$ | async" />
 </div>

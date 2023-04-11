@@ -10,14 +10,14 @@ import { take, map } from 'rxjs/operators';
 })
 export class CardImagePreviewerComponent implements OnInit {
     @Input() cardName!: string;
-    imageUrl$?: Observable<string>;
+    imageUrl$?: Observable<string | undefined>;
 
     constructor(private scryfall: ScryfallService) {}
 
     ngOnInit(): void {
         this.imageUrl$ = this.scryfall.getCard(this.cardName).pipe(
             take(1),
-            map((result) => result.image_uris.normal)
+            map((result) => result.image_uris?.normal)
         );
     }
 }

@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ScryfallCatalog } from '../models/scryfall-catalog.model';
-import { Observable, of } from 'rxjs';
+import { of } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ScryfallCard } from '@core/models/scryfall-card.model';
 
 @Injectable({
     providedIn: 'root',
@@ -33,7 +34,7 @@ export class ScryfallService {
     }
 
     getCard(cardName: string) {
-        return this.http.get<any>(this.endpoints.cardByName, {
+        return this.http.get<ScryfallCard>(this.endpoints.cardByName, {
             params: {
                 exact: cardName
             }

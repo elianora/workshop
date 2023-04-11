@@ -29,6 +29,7 @@ import { CardAutocompleterComponent } from './components/card-autocompleter/card
         RouterModule,
     ],
     exports: [
+        CardAutocompleterComponent,
         FontAwesomeModule,
         MatAutocompleteModule,
         MatFormFieldModule,
